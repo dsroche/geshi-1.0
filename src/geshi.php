@@ -1207,10 +1207,12 @@ class GeSHi {
      * @since 1.0.0
      */
     function set_strings_style($style, $preserve_defaults = false, $group = 0) {
-        if (!$preserve_defaults) {
-            $this->language_data['STYLES']['STRINGS'][$group] = $style;
-        } else {
-            $this->language_data['STYLES']['STRINGS'][$group] .= $style;
+        if (array_key_exists($group, $this->language_data['STYLES']['STRINGS'])) {
+            if (!$preserve_defaults) {
+                $this->language_data['STYLES']['STRINGS'][$group] = $style;
+            } else {
+                $this->language_data['STYLES']['STRINGS'][$group] .= $style;
+            }
         }
     }
 
@@ -1256,10 +1258,12 @@ class GeSHi {
      * @since 1.0.0
      */
     function set_numbers_style($style, $preserve_defaults = false, $group = 0) {
-        if (!$preserve_defaults) {
-            $this->language_data['STYLES']['NUMBERS'][$group] = $style;
-        } else {
-            $this->language_data['STYLES']['NUMBERS'][$group] .= $style;
+        if (array_key_exists($group, $this->language_data['STYLES']['NUMBERS'])) {
+            if (!$preserve_defaults) {
+                $this->language_data['STYLES']['NUMBERS'][$group] = $style;
+            } else {
+                $this->language_data['STYLES']['NUMBERS'][$group] .= $style;
+            }
         }
     }
 
